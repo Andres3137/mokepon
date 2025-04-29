@@ -47,17 +47,29 @@ let lienzo = mapa.getContext("2d");
 let intervalo;
 let mapaBackground = new Image();
 mapaBackground.src = "./img/mokemap.png";
+let alturaQueBuscamos;
+let anchoDelMapa = window.innerWidth - 20;
+const anchoMaximoDelMapa = 350;
+
+if (anchoDelMapa > anchoMaximoDelMapa) {
+  anchoDelMapa = anchoMaximoDelMapa - 20;
+}
+
+alturaQueBuscamos = (anchoDelMapa * 600) / 800;
+
+mapa.width = anchoDelMapa;
+mapa.height = alturaQueBuscamos;
 
 class Mokepon {
-  constructor(nombre, foto, vida, fotoMapa, x = 10, y = 10) {
+  constructor(nombre, foto, vida, fotoMapa) {
     this.nombre = nombre;
     this.foto = foto;
     this.vida = vida;
     this.ataques = [];
-    this.x = x;
-    this.y = y;
     this.ancho = 40;
     this.alto = 40;
+    this.x = aleatorio(0, mapa.width - this.ancho);
+    this.y = aleatorio(0, mapa.height - this.alto);
     this.mapaFoto = new Image();
     this.mapaFoto.src = fotoMapa;
     this.velocidadX = 0;
@@ -93,27 +105,21 @@ let hipodogeEnemigo = new Mokepon(
   "Hipodoge",
   "img/hipodoge.png ",
   5,
-  "./img/hipodogecopia.png ",
-  80,
-  120
+  "./img/hipodogecopia.png "
 );
 
 let capipepoEnemigo = new Mokepon(
   "Capipepo",
   "img/capipepo.png",
   5,
-  "./img/capipepocopia.png",
-  150,
-  95
+  "./img/capipepocopia.png"
 );
 
 let ratigueyaEnemigo = new Mokepon(
   "Ratigueya",
   "img/ratigueya.png",
   5,
-  "./img/ratigueyacopia.png",
-  200,
-  190
+  "./img/ratigueyacopia.png"
 );
 
 hipodoge.ataques.push(
@@ -435,8 +441,6 @@ function sePresionoUnaTecla(event) {
 }
 
 function iniciarmapa() {
-  mapa.width = 320;
-  mapa.height = 240;
   console.log(mascotaJugadorObjeto, mascotaJugador);
   mascotaJugadorObjeto = obtenerObjetoMascota(mascotaJugador);
   intervalo = setInterval(pintarCanvas, 50);

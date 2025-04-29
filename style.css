@@ -151,14 +151,12 @@ input:checked + label {
   align-items: center;
   justify-content: center;
 }
-#mapa {
-  border: 2px solid black;
-}
+
 #btn-dir {
   padding: 10px 20px;
   margin: 5px;
   font-size: 18px;
-  border: 2px solid #333;
+  border: 1px solid #333;
   border-radius: 5px;
   background-color: #e0e0e0;
   cursor: pointer;
@@ -178,7 +176,7 @@ input:checked + label {
   margin: 1px 0;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 560px) {
   .tarjetas {
     flex-direction: column;
   }
@@ -187,5 +185,12 @@ input:checked + label {
   }
   .botonataque {
     margin: 10px;
+  }
+}
+@media (max-width: 300px) {
+  #ver-mapa div {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
   }
 }
