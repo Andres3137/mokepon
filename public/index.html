@@ -30,16 +30,24 @@
         <h2>RECORRE EL MAPA CON TU MOKEPON</h2>
         <canvas id="mapa"></canvas>
         <div class="mover_arriba">
-            <button onmouseup="detenerMovimiento()" onmousedown="moverArriba()" id="btn-dir">↑</button>
+            <button ontouchend="detenerMovimiento()" onmouseup="detenerMovimiento()" ontouchstart="moverArriba()"
+                onmousedown="moverArriba()" id="btn-up" class="btn-dir-common"> ↑
+            </button>
         </div>
 
         <div class="mover_lado">
-            <button onmouseup="detenerMovimiento()" onmousedown=" moverizquierda()" id="btn-dir">←</button>
-            <button onmouseup="detenerMovimiento()" onmousedown="moverderecha()" id="btn-dir">→</button>
+            <button onmouseup="detenerMovimiento()" ontouchend="detenerMovimiento()" onmousedown="moverizquierda()"
+                ontouchstart="moverizquierda()" id="btn-left" class="btn-dir-common"> ←
+            </button>
+            <button onmouseup="detenerMovimiento()" ontouchend="detenerMovimiento()" onmousedown="moverderecha()"
+                ontouchstart="moverderecha()" id="btn-right" class="btn-dir-common"> →
+            </button>
         </div>
 
         <div class="mover_abajo">
-            <button onmouseup="detenerMovimiento()" onmousedown="moverAbajo()" id="btn-dir">↓</button>
+            <button onmouseup="detenerMovimiento()" ontouchend="detenerMovimiento()" onmousedown="moverAbajo()"
+                ontouchstart="moverAbajo()" id="btn-down" class="btn-dir-common"> ↓
+            </button>
         </div>
     </section>
 
@@ -72,7 +80,7 @@
         </div>
 
     </section>
-    <script src="js/mokepon.js"></script>
+    <script src="mokepon.js"></script>
 </body>
 
 </html>

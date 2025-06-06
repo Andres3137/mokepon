@@ -176,6 +176,11 @@ input:checked + label {
   margin: 1px 0;
 }
 
+.tarjeta-mokepon img:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
+
 @media (max-width: 560px) {
   .tarjetas {
     flex-direction: column;
